@@ -1,3 +1,5 @@
+import { ChakraLoaderPlugin } from 'chakra-loader'
+
 export default {
   /*
    ** Nuxt target
@@ -38,10 +40,30 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss',
+    // '@nuxtjs/tailwindcss',
   ],
 
+  modules: ['@chakra-ui/nuxt', '@nuxtjs/emotion'],
+
+  /**
+   * Add extend the plugin options under the `chakra` key.
+   **/
+  // chakra: {
+  //   extendTheme: {
+  //     colors: {
+  //       brand: {
+  //         /* ... */
+  //       },
+  //     },
+  //   },
+  // },
   generate: {
     fallback: true,
+  },
+
+  build: {
+    extend(config) {
+      config.plugins.push(new ChakraLoaderPlugin())
+    },
   },
 }

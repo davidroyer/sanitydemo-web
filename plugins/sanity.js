@@ -2,7 +2,7 @@ import sanity from 'picosanity' // or from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
 
 const client = sanity({
-  projectId: 'tufjlt9c',
+  projectId: 'jyioe45g',
   dataset: 'production',
   useCdn: false,
   withCredentials: true,
