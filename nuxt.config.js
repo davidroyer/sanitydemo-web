@@ -43,7 +43,7 @@ export default {
     // '@nuxtjs/tailwindcss',
   ],
 
-  modules: ['@chakra-ui/nuxt', '@nuxtjs/emotion'],
+  modules: ['@nuxtjs/pwa', '@chakra-ui/nuxt', '@nuxtjs/emotion'],
 
   /**
    * Add extend the plugin options under the `chakra` key.

@@ -13,6 +13,7 @@
   "dependencies": {
     "@chakra-ui/nuxt": "^0.0.9",
     "@nuxtjs/emotion": "^0.0.1",
+    "@nuxtjs/pwa": "^3.0.2",
     "@sanity/client": "^1.149.18",
     "@sanity/image-url": "^0.140.19",
     "@tailwindcss/typography": "^0.2.0",
