@@ -39,10 +39,10 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
+    '@nuxtjs/sanity',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     // '@nuxtjs/tailwindcss',
   ],
-
   modules: ['@nuxtjs/pwa', '@chakra-ui/nuxt', '@nuxtjs/emotion'],
 
   /**

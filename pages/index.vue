@@ -7,15 +7,17 @@
       </CHeading>
       <c-simple-grid mb="4" min-child-width="220px" spacing="40px">
         <c-box
-          v-for="movie in movies"
-          :key="movie._id"
+          v-for="book in books"
+          :key="book._id"
           bg="gray.200"
           height="75px"
           textAlign="center"
         >
-          <CLink as="nuxt-link" :to="'/' + movie.link">
-            {{ movie.title }}
-          </CLink>
+          <c-image :src="$urlFor(book.bookCover)" />
+          <!-- <nuxt-link to="/books/the-art-of-happiness">Test</nuxt-link> -->
+          <c-link as="nuxt-link" :to="'/books/' + book.slug.current">
+            {{ book.title }}
+          </c-link>
         </c-box>
       </c-simple-grid>
 
@@ -47,23 +49,26 @@
 </template>
 
 <script>
-const query = `
-*[_type == 'movie'] {
+import { groq } from '@nuxtjs/sanity'
+console.log('groq', groq)
+
+const query = groq`*[_type == "audiobook"] {
   _id,
   title,
-  "link": slug.current
-}
-`
+  slug,
+  bookCover,
+  "link": adudiobookUrl
+}`
 
 export default {
-  name: 'MoviesList',
+  name: 'BooksList',
   inject: ['$chakraColorMode', '$toggleColorMode'],
 
   async asyncData({ $sanity }) {
     try {
-      const movies = await $sanity.fetch(query)
+      const books = await $sanity.fetch(query)
       return {
-        movies,
+        books,
       }
     } catch (error) {
       console.error(error)
@@ -86,6 +91,7 @@ export default {
       },
     }
   },
+
   computed: {
     colorMode() {
       return this.$chakraColorMode()
@@ -97,6 +103,7 @@ export default {
       return this.$toggleColorMode
     },
   },
+
   methods: {
     showToast() {
       this.$toast({
