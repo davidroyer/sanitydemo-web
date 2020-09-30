@@ -5,6 +5,13 @@
       <CHeading text-align="center" mb="4"
         >⚡️ Nuxt.js + Sanity + Chakra UI
       </CHeading>
+      <h3>
+        <strong>Site Title:</strong> {{ $store.state.siteSettings.title }}
+      </h3>
+      <h3>
+        <strong>Site Description:</strong>
+        {{ $store.state.siteSettings.description }}
+      </h3>
       <c-simple-grid mb="4" min-child-width="220px" spacing="40px">
         <c-box
           v-for="book in books"
@@ -13,7 +20,7 @@
           height="75px"
           textAlign="center"
         >
-          <c-image :src="$urlFor(book.bookCover)" />
+          <!-- <c-image :src="$urlFor(book.bookCover)" /> -->
           <!-- <nuxt-link to="/books/the-art-of-happiness">Test</nuxt-link> -->
           <c-link as="nuxt-link" :to="'/books/' + book.slug.current">
             {{ book.title }}

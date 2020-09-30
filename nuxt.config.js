@@ -27,7 +27,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['~plugins/sanity.js', '~plugins/preview.client.js'],
+  // plugins: ['~plugins/sanity.js', '~plugins/preview.client.js'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -65,5 +65,11 @@ export default {
     extend(config) {
       config.plugins.push(new ChakraLoaderPlugin())
     },
+  },
+  sanity: {
+    projectId: 'jyioe45g',
+    dataset: 'production',
+    useCdn: false,
+    withCredentials: true,
   },
 }
